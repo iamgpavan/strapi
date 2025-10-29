@@ -1,0 +1,20 @@
+export default ({ env }) => ({
+  enabled: env.bool('AUDIT_LOG_ENABLED', true),
+  excludeContentTypes: [
+    'admin::permission',
+    'admin::user',
+    'admin::role',
+    'admin::api-token',
+    'admin::api-token-permission',
+    'admin::transfer-token',
+    'admin::transfer-token-permission',
+    'admin::audit-log',
+    'plugin::upload.file',
+    'plugin::upload.folder',
+    'plugin::users-permissions.permission',
+    'plugin::users-permissions.role',
+    'api::audit-log.audit-log',
+  ],
+  captureFullPayload: env.bool('AUDIT_LOG_FULL_PAYLOAD', true),
+  async: env.bool('AUDIT_LOG_ASYNC', true),
+});
